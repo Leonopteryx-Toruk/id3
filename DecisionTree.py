@@ -65,6 +65,6 @@ def id3(df, columns, target_attribute, level=0):
 
 
 if __name__=="__main__":
-    tennis_df = pd.read_csv("tennis.csv", sep=";", index_col=False)
+    tennis_df = pd.read_csv("Examples/tennis.csv", sep=";", index_col=False)
     columns = list(tennis_df.columns)
     id3(tennis_df, columns, "Play Tennis")
