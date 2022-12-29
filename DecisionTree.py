@@ -5,6 +5,7 @@ import copy
 from statistics import mode
 from Tree import Node, print_tree
 import Constants
+import sys
 
 def most_common(List):
     return (mode(List))
@@ -93,9 +94,18 @@ def id3(df, columns, target_attribute, node=Node(), level=0):
 
 
 if __name__=="__main__":
-    dataframe = pd.read_csv("Examples/tennis.csv", sep=Constants.SEMICOLON, index_col=False)
 
-    print("dataframe", dataframe)
+    path = sys.argv[1]
+    separator = sys.argv[2]
+    target_column = sys.argv[3]
+
+    print("path", path)
+    print("separator", separator)
+    print("target_column", target_column)
+
+    dataframe = pd.read_csv(path, sep=separator, index_col=False)
+
+    print(dataframe)
 
     columns = dataframe.columns
     for i in range(len(columns)):
@@ -103,19 +113,5 @@ if __name__=="__main__":
         dataframe[column] = dataframe[column].apply(str)
 
     columns = list(dataframe.columns)
-    root = id3(dataframe, columns, "Play Tennis")
+    root = id3(dataframe, columns, target_column)
     print_tree(root)
-
-    # # node = Node()
-    # # my_node = create_node(node, "ciccio", "caio", None)
-    #
-    # node1 = Node()
-    # node2 = Node()
-    #
-    # print(node1 == node2)
-    #
-    # print(len(node1.get_children()))
-    # print(len(node2.get_children()))
-    # node1.children.append(node2)
-    # print(len(node1.get_children()))
-    # print(len(node2.get_children()))
