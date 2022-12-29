@@ -1,4 +1,4 @@
-#ID3
+# ID3
 
 This project implements id3 (Iterative Dichotomiser 3) decision tree algorithm. The following is the application of our code to the very famous tennis example.
 
