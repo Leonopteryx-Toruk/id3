@@ -3,6 +3,8 @@ import numpy as np
 import math
 import copy
 from statistics import mode
+from Tree import Node, print_tree
+import Constants
 
 def most_common(List):
     return (mode(List))
@@ -22,9 +24,17 @@ def filter_df(df, column_name, value):
     df_filtered = df.loc[df.loc[:, column_name] == value, :]
     return df_filtered
 
-def id3(df, columns, target_attribute, level=0):
+def create_node(node, best_col, best_col_value, classification):
+    my_node = Node(column=best_col, value=best_col_value, classification=classification)
+    node.add_child(my_node)
+    my_node.set_parent(node)
+    return my_node
+
+def id3(df, columns, target_attribute, node=Node(), level=0):
     if target_attribute in columns:
         columns.remove(target_attribute)
+
+    # print(len(node.get_children()))
 
     # print("columns received", columns)
     information_gain = dict()
@@ -59,9 +69,9 @@ def id3(df, columns, target_attribute, level=0):
         best_col_value = best_col_values[i]
         # print("best_col", best_col)
         # print("level", level)
-        for i in range(level):
-            print("|", end="\t")
-        print("{best_col} = {best_col_value}".format(best_col=best_col, best_col_value=best_col_value), end="")
+        # for i in range(level):
+        #     print("|", end="\t")
+        # print("{best_col} = {best_col_value}".format(best_col=best_col, best_col_value=best_col_value), end="")
         # print("value: " + best_col_value)
         df_filtered_vi = filter_df(df, best_col, best_col_value)
         branch_columns = copy.deepcopy(columns)
@@ -69,16 +79,21 @@ def id3(df, columns, target_attribute, level=0):
         next_level = level + 1
         # print("columns passed", branch_columns)
 
+        classification = None
         if len(branch_columns) == 0 or len(list(np.unique(df_filtered_vi.loc[:, target_attribute]))) == 1:
             prediction = most_common(df_filtered_vi[target_attribute].values)
-            print(": {prediction}".format(prediction=prediction))
+            # print(": {prediction}".format(prediction=prediction))
+            classification = prediction
+            create_node(node, best_col, best_col_value, classification)
         else:
-            print()
-            id3(df_filtered_vi, branch_columns, target_attribute, next_level)
+            # print()
+            my_node = create_node(node, best_col, best_col_value, classification)
+            id3(df_filtered_vi, branch_columns, target_attribute, my_node, next_level)
+    return node
 
 
 if __name__=="__main__":
-    dataframe = pd.read_csv("Examples/titanic.csv", sep=",", index_col=False)
+    dataframe = pd.read_csv("Examples/tennis.csv", sep=Constants.SEMICOLON, index_col=False)
 
     print("dataframe", dataframe)
 
@@ -88,4 +103,19 @@ if __name__=="__main__":
         dataframe[column] = dataframe[column].apply(str)
 
     columns = list(dataframe.columns)
-    id3(dataframe, columns, "Survival")
+    root = id3(dataframe, columns, "Play Tennis")
+    print_tree(root)
+
+    # # node = Node()
+    # # my_node = create_node(node, "ciccio", "caio", None)
+    #
+    # node1 = Node()
+    # node2 = Node()
+    #
+    # print(node1 == node2)
+    #
+    # print(len(node1.get_children()))
+    # print(len(node2.get_children()))
+    # node1.children.append(node2)
+    # print(len(node1.get_children()))
+    # print(len(node2.get_children()))
