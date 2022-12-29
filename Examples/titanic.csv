@@ -1,0 +1,16 @@
+﻿Pclass,Age,Sex,Survival
+3,30+,Male,No
+3,30+,Male,No
+1,0-10,Female,Yes
+1,10-30,Female,Yes
+2,0-10,Female,Yes
+3,0-10,Female,No
+2,30+,Female,Yes
+3,30+,Female,Yes
+1,30+,Male,No
+1,0-10,Female,Yes
+1,0-10,Male,Yes
+1,0-10,Male,Yes
+2,10-30,Male,Yes
+1,0-10,Male,Yes
+1,30+,Female,No
