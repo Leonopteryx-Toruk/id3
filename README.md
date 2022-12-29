@@ -1,7 +1,10 @@
+#ID3
+
 This project implements id3 (Iterative Dichotomiser 3) decision tree algorithm. The following is the application of our code to the very famous tennis example.
 
-python DecisionTree.py "Examples\tennis.csv" ";" "Play Tennis"
+# Example of use
 
+python DecisionTree.py "Examples\tennis.csv" ";" "Play Tennis"
 
 path Examples\tennis.csv
 separator ;

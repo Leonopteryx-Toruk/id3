@@ -31,7 +31,7 @@ def create_node(node, best_col, best_col_value, classification):
     my_node.set_parent(node)
     return my_node
 
-def id3(df, columns, target_attribute, node=Node(), level=0):
+def train(df, columns, target_attribute, node=Node(), level=0):
     if target_attribute in columns:
         columns.remove(target_attribute)
 
@@ -89,9 +89,11 @@ def id3(df, columns, target_attribute, node=Node(), level=0):
         else:
             # print()
             my_node = create_node(node, best_col, best_col_value, classification)
-            id3(df_filtered_vi, branch_columns, target_attribute, my_node, next_level)
+            train(df_filtered_vi, branch_columns, target_attribute, my_node, next_level)
     return node
 
+    def predict(tree, record):
+        return None
 
 if __name__=="__main__":
 
@@ -113,5 +115,5 @@ if __name__=="__main__":
         dataframe[column] = dataframe[column].apply(str)
 
     columns = list(dataframe.columns)
-    root = id3(dataframe, columns, target_column)
+    root = train(dataframe, columns, target_column)
     print_tree(root)
