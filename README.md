@@ -18,7 +18,7 @@ Creating a python virtual environment is useful to import the required libraries
 
 Once you have activated the python virtual environment, you may proceed with the following guide. <br />
 
-## Example of use
+## Guide
 
 It is possible to start the training with the following syntax: <br />
 
