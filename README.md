@@ -8,7 +8,7 @@ The dataset must be a csv table where each column represents a feature and the c
 
 ## Installing prerequisites
 
-The following steps are useful to create a python virtual environment where to import library required and run the id3 training <br />
+The following steps are useful to create a python virtual environment where to import library required and run the id3 training: <br />
 
 <ol>
 <li>Create a python virtual environment: <code>py -m venv id3_env</code></li>
