@@ -8,7 +8,7 @@ The dataset must be a csv table where each column represents a feature and the c
 
 ## Installing prerequisites
 
-The following steps are useful to create a python virtual environment where to import the required libraries and run the id3 training: <br />
+Creating a python virtual environment is useful to import the required libraries and run the id3 training algorithm. The following steps will set a python virtual environment in your machne and import all the required libreries, if your machine runs over a Windows operative system. For other operative systems, or to have deeper informations about python virtual environments, please refer to this <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#installing-virtualenv">link<a/>. <br />
 
 <ol>
 <li>Create a python virtual environment: <code>py -m venv id3_env</code></li>
