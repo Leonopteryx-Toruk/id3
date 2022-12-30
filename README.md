@@ -2,7 +2,23 @@
 
 This project implements id3 (Iterative Dichotomiser 3) decision tree algorithm. The following is the application of our code to the very famous tennis example.<br /><br />
 
-# Example of use
+This algorithm trains an id3 decision tree algorithm on a dataset given as input by the user. Eventually, this algorithm prints the strcture of the trained tree.<br />
+
+The dataset must be a csv table where each column represents a feature and the class must be present as a column. This algorithm works only with categorical attributes: each numerical attribute will be converted into string and treated as categorical. <br />
+
+## Example of use
+
+It is possible to start the training with the following syntax: <br />
+
+python DecisionTree.py path_to_csv csv_separator target_attribute<br />
+
+<ul>
+<li>path_to_csv: path to the dataset (represented as a csv file)</li>
+<li>csv_separator: separator character between csv columns</li>
+<li>target_attribute: name of the column that contains the class of each row</li>
+</ul>
+
+The following example explains how to run the training on the famous tennis dataset <br />
 
 python DecisionTree.py "Examples\tennis.csv" ";" "Play Tennis"<br />
 
