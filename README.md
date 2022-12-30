@@ -6,6 +6,18 @@ This algorithm trains an id3 decision tree algorithm on a dataset given as input
 
 The dataset must be a csv table where each column represents a feature and the class must be present as a column. This algorithm works only with categorical attributes: each numerical attribute will be converted into string and treated as categorical. <br />
 
+## Installing prerequisites
+
+The following steps are useful to create a python virtual environment where to import library required and run the id3 training <br />
+
+<ol>
+<li>Create a python virtual environment: <code>py -m venv id3_env</code></li>
+<li>Activate the virtual env created: <code>.\id3_env\Scripts\activate</code></li>
+<li>Install the library required <code>py -m pip install -r requirements.txt</code></li>
+</ol>
+
+Once you have activated the python virtual environment, you may proceed with the following guide. <br />
+
 ## Example of use
 
 It is possible to start the training with the following syntax: <br />
