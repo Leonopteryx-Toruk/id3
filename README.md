@@ -1,6 +1,6 @@
 # ID3
 
-This project implements id3 (Iterative Dichotomiser 3) decision tree algorithm. The following is the application of our code to the very famous tennis example.<br /><br />
+This project implements id3 (Iterative Dichotomiser 3) decision tree algorithm. This implementation uses entropy to iteratively choose the attribute that dichotomises the dataset.
 
 This algorithm trains an id3 decision tree algorithm on a dataset given as input by the user. Eventually, this algorithm prints the strcture of the trained tree.<br />
 
