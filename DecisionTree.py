@@ -4,7 +4,6 @@ import math
 import copy
 from statistics import mode
 from Tree import Node, print_tree
-import Constants
 import sys
 
 def most_common(List):

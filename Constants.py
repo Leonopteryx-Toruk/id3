@@ -1,2 +1,0 @@
-COMMA=","
-SEMICOLON=";"
